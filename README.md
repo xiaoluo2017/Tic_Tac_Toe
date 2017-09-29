@@ -1,5 +1,5 @@
 # Tic_Tac_Toe
-A Tic-Tac-Toe vs AI
+A Tic-Tac-Toe game vs AI
 
 # Features
 * Choose whether play as X or O
