@@ -1,0 +1,85 @@
+body {
+  background-color: #f8f9fa !important;
+}
+
+.container {
+  margin-top: 60px;
+}
+
+.btn-light {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 80px !important;
+  height: 140px;
+  background-color: #f8f9fa !important; 
+  border: #f8f9fa;
+  border-radius: 0%;
+} 
+
+.col-md-4 {
+  padding: 0px !important;
+  background-color: white;
+}
+
+#row0col0 {
+  border-right: 2px solid #343a40;
+  border-bottom: 2px solid #343a40;
+}
+
+#row0col1 {
+  border-left: 2px solid #343a40;
+  border-right: 2px solid #343a40;
+  border-bottom: 2px solid #343a40;
+}
+
+#row0col2 {
+  border-left: 2px solid #343a40;
+  border-bottom: 2px solid #343a40;
+}
+
+#row1col0 {
+  border-top: 2px solid #343a40;
+  border-right: 2px solid #343a40;
+  border-bottom: 2px solid #343a40;
+}
+
+#row1col1 {
+  border: 2px solid #343a40;
+}
+
+#row1col2 {
+  border-left: 2px solid #343a40;
+  border-top: 2px solid #343a40;
+  border-bottom: 2px solid #343a40;
+}
+
+#row2col0 {
+  border-top: 2px solid #343a40;
+  border-right: 2px solid #343a40;
+}
+
+#row2col1 {
+  border-left: 2px solid #343a40;
+  border-top: 2px solid #343a40;
+  border-right: 2px solid #343a40;
+}
+
+#row2col2 {
+  border-left: 2px solid #343a40;
+  border-top: 2px solid #343a40;
+  outline: none;
+}
+
+#result {
+  padding-top: 30px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 30px;
+}
+
+#explain {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 20px;
+}
+
+#X {
+  border-bottom: 3px solid red;
+}
