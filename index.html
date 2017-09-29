@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic_Tac_Toe</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="row">
+            <div class="col-md-6 text-center"><button id="X" type="button" class="btn btn-dark btn-block">X</button></div>
+            <div class="col-md-6 text-center ml-auto"><button id="O" type="button" class="btn btn-dark btn-block">O</button></div>
+          </div>
+          <div>
+            <p id="result" class="text-center">Start the game or select the player</p>
+            <p id="explain" class="text-center"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mx-auto">
+          <div class="row">
+            <div class="col-md-4"><button id="row0col0" type="button" class="btn btn-light btn-block"></button></div>
+            <div class="col-md-4"><button id="row0col1" type="button" class="btn btn-light btn-block"></button></div>
+            <div class="col-md-4"><button id="row0col2" type="button" class="btn btn-light btn-block"></button></div>
+          </div>
+          <div class="row">
+            <div class="col-md-4"><button id="row1col0" type="button" class="btn btn-light btn-block"></button></div>
+            <div class="col-md-4"><button id="row1col1" type="button" class="btn btn-light btn-block"></button></div>
+            <div class="col-md-4"><button id="row1col2" type="button" class="btn btn-light btn-block"></button></div>
+          </div>
+          <div class="row">
+            <div class="col-md-4"><button id="row2col0" type="button" class="btn btn-light btn-block"></button></div>
+            <div class="col-md-4"><button id="row2col1" type="button" class="btn btn-light btn-block"></button></div>
+            <div class="col-md-4"><button id="row2col2" type="button" class="btn btn-light btn-block"></button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://use.fontawesome.com/9c20ef1628.js"></script>
+    <script src="logic.js"></script>
+  </body>
+</html>
