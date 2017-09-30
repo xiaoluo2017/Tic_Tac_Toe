@@ -3,7 +3,7 @@ A Tic-Tac-Toe game vs AI
 
 # Features
 * Choose whether play as X or O
-* An undefeated AI
+* An almost undefeated AI(but can beat it)
 
 # Usage
 * ```git clone https://github.com/xiaoluo2017/Tic_Tac_Toe```
