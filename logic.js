@@ -154,7 +154,7 @@ function computeRowrate(i) {
     }
   }
   if (robotCnt === 2) {
-    victory = [[i, 0], [i, 1], [i, 2]];
+    // victory = [[i, 0], [i, 1], [i, 2]];
     return 21;
   }
   if (userCnt === 2) return 5;
@@ -172,7 +172,7 @@ function computeColumeRate(j) {
     }
   }
   if (robotCnt === 2) {
-    victory = [[0, j], [1, j], [2, j]];
+    // victory = [[0, j], [1, j], [2, j]];
     return 21;
   }
   if (userCnt === 2) return 5;
@@ -190,8 +190,8 @@ function computeMainDiagonalRate() {
     }
   }
   if (robotCnt === 2) {
+    // victory = [[0, 0], [1, 1], [2, 2]];
     return 21;
-    victory = [[0, 0], [1, 1], [2, 2]];
   }
   if (userCnt === 2) return 5;
   if (robotCnt === 1 && userCnt === 0) return 1;
@@ -208,7 +208,7 @@ function computeMinorDiagonalRate() {
     }
   }
   if (robotCnt === 2) {
-    victory = [[0, 2], [1, 1], [2, 0]];
+    // victory = [[0, 2], [1, 1], [2, 0]];
     return 21;
   }
   if (userCnt === 2) return 5;
@@ -217,21 +217,18 @@ function computeMinorDiagonalRate() {
 }
 
 function changeRound(i, j) {
-  checkVictory();
-  if (step === 8 || gameover) {
-    endGame();
+  board[i][j] = isUserRound ? userPiece : robotPiece;
+  step++;
+  if (isRoundX) {
+    roundOfO();
+    isRoundX = false;
   } else {
-    board[i][j] = isUserRound ? userPiece : robotPiece;
-    isUserRound = !isUserRound;
-    step++;
-    if (isRoundX) {
-      roundOfO();
-      isRoundX = false;
-    } else {
-      roundOfX();
-      isRoundX = true;
-    }
+    roundOfX();
+    isRoundX = true;
   }
+  isUserRound = !isUserRound;
+  checkVictory(i, j);
+  if (step === 9 || gameover) endGame();
 }
 
 function roundOfO() {
@@ -244,7 +241,18 @@ function roundOfX() {
   $("#X").css("border-bottom", "2px solid red");
 }
 
-function checkVictory() {
+function checkVictory(i, j) {
+  if (i === 2 - j && board[0][2] === board[1][1] && board[1][1] === board[2][0]) {
+    victory = [[0, 2], [1, 1], [2, 0]];
+  } else if (i === j && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
+    victory = [[0, 0], [1, 1], [2, 2]];
+  } else if (board[0][j] === board[1][j] && board[1][j] == board[2][j]) {
+    victory = [[0, j], [1, j], [2, j]];
+  } else if (board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
+    victory = [[i, 0], [i, 1], [i, 2]];
+  }
+
+  console.log(isUserRound);
   if (victory !== undefined) {
     gameover = true;
     window.setTimeout(function(){
@@ -252,7 +260,13 @@ function checkVictory() {
         var id = "#row" + victory[i][0] + "col" + victory[i][1];
         $(id).css("color", "red");
       }
-      $("#result").text("Uh oh, you lost..")
+      if (isUserRound) {
+        $("#result").text("Uh oh, you lost..");
+        // 1500ms delay, so isUserRound === false if is "user round"
+        
+      } else {
+        $("#result").text("Congratulations, you won!");
+      }
       $("#explain").text("Select a player to start a new game");
       endGame();
     }, 1500);
@@ -261,8 +275,7 @@ function checkVictory() {
 
 function endGame() {
   gameover = true;
-  console.log(step);
-  if (step === 8) {
+  if (step === 9 && victory === undefined) {
     window.setTimeout(function(){
       $("#result").text("It was a draw..");
       $("#explain").text("Select a player to start a new game");
